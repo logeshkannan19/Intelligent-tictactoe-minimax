@@ -1,95 +1,112 @@
-# Tic Tac Toe
+# 🧠 Intelligent Tic Tac Toe AI
 
-A complete Tic Tac Toe implementation in Python with an intelligent AI opponent using the Minimax algorithm.
+### Minimax Algorithm | CLI + GUI | Python Project
 
-## Features
+A fully-featured Tic Tac Toe game built in Python with an intelligent AI opponent powered by the **Minimax algorithm**. The AI plays optimally and is unbeatable in hard mode.
 
-- **Player vs Player** mode
-- **Player vs AI** mode with 3 difficulty levels:
-  - Easy: Random moves
-  - Medium: Basic blocking and winning logic
-  - Hard: Unbeatable Minimax algorithm
-- **Tkinter GUI** version available
-- Score tracking across games
-- Comprehensive test suite
+---
 
-## Requirements
+## 🚀 Demo Features
 
-- Python 3.8+
+* 🎮 Player vs Player mode
+* 🤖 AI Opponent (3 Difficulty Levels)
+* 🧠 Hard Mode: Unbeatable Minimax AI
+* 🖥️ CLI + Tkinter GUI versions
+* 📊 Score tracking system
+* 🧪 Unit testing with pytest
 
-## Installation
+---
+
+## 🧠 AI Strategy
+
+The AI uses the **Minimax algorithm**, a decision-making technique that:
+
+* Explores all possible moves
+* Simulates future game states
+* Chooses the optimal move
+* Ensures the best possible outcome
+
+👉 Result: **The AI never loses**
+
+---
+
+## 📂 Project Structure
+
+```
+intelligent-tictactoe-minimax/
+├── src/
+│   ├── main.py              # Entry point (CLI)
+│   ├── game/
+│   │   ├── board.py         # Board logic
+│   │   ├── rules.py         # Win/draw detection
+│   │   └── player.py        # Player classes
+│   ├── ai/
+│   │   ├── minimax.py       # Minimax algorithm
+│   │   └── difficulty.py   # Difficulty levels
+│   └── utils/
+│       ├── display.py      # CLI display
+│       └── helpers.py      # Utilities
+├── tests/
+│   ├── test_game.py
+│   └── test_ai.py
+├── docs/
+│   ├── architecture.md
+│   └── minimax_explanation.md
+├── README.md
+├── LICENSE
+└── requirements.txt
+```
+
+---
+
+## ⚙️ Installation
 
 ```bash
-# Clone or navigate to the project directory
-cd tic_tac_toe
-
-# Install the package (optional)
+git clone https://github.com/logeshkannan19/Intelligent-tictactoe-minimax.git
+cd Intelligent-tictactoe-minimax
 pip install -e .
 ```
 
-## Running the Game
+---
 
-### Command-Line Version
+## ▶️ Run the Game
+
+### CLI
 
 ```bash
-# Using the installed script (after pip install)
-tic-tac-toe
-
-# Or directly with Python
-PYTHONPATH=src python3 -m tic_tac_toe.main
+PYTHONPATH=src python -m src.main
 ```
 
-### GUI Version
+### GUI (Tkinter)
 
 ```bash
-PYTHONPATH=src python3 -m tic_tac_toe.gui
-
-# Or after installation
-tic-tac-toe-gui
+PYTHONPATH=src python -m src.gui
 ```
 
-## Running Tests
+---
+
+## 🧪 Run Tests
 
 ```bash
-# Run all tests
 pytest
-
-# Run with coverage
-pytest --cov=tic_tac_toe
 ```
 
-## Project Structure
+---
 
-```
-tic_tac_toe/
-├── pyproject.toml          # Package configuration
-├── README.md               # This file
-├── src/
-│   └── tic_tac_toe/        # Main package
-│       ├── __init__.py     # Package exports
-│       ├── board.py        # Board state & logic
-│       ├── player.py       # Human & AI players
-│       ├── game.py         # Game loop
-│       ├── main.py         # CLI entry point
-│       └── gui.py          # Tkinter GUI
-└── tests/
-    └── test_tic_tac_toe.py # Unit tests
-```
+## 📸 Screenshots
 
-## AI Implementation
+*Add screenshots here (very important for GitHub visibility)*
 
-### Minimax Algorithm
+---
 
-The "Hard" difficulty uses the **Minimax algorithm** to achieve unbeatable play:
+## 🔥 Future Improvements
 
-1. **Recursive evaluation**: Explores all possible game states
-2. **Scoring**: +10 for AI win, -10 for opponent win, 0 for draw
-3. **Optimization**: Prefers faster wins (lower depth = higher score)
+* Online multiplayer
+* Reinforcement Learning AI
+* Web-based version (React + Flask)
 
-### Alpha-Beta Pruning (Optional Enhancement)
+---
 
-The algorithm can be optimized with alpha-beta pruning to reduce the number of nodes evaluated while maintaining the same result.
+## 📜 License
 
-## License
-
-MIT
+MIT License

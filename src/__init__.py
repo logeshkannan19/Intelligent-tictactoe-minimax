@@ -9,6 +9,7 @@ from src.game.player import Player, HumanPlayer, AIPlayer
 from src.game.rules import GameRules
 from src.ai.minimax import MinimaxAI
 from src.ai.difficulty import Difficulty
+from src.gui import TicTacToeGUI
 
 __all__ = [
     "Board",
@@ -18,4 +19,5 @@ __all__ = [
     "GameRules",
     "MinimaxAI",
     "Difficulty",
+    "TicTacToeGUI",
 ]
