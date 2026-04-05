@@ -2,13 +2,20 @@
 Web App - Streamlit-based Tic Tac Toe
 
 A simple web interface for playing Tic Tac Toe against the AI.
+
+To run: streamlit run webapp.py
 """
 
+import sys
+import os
+
+# Add src to path for imports
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+
 import streamlit as st
-from src.game.board import Board
-from src.game.rules import GameRules
-from src.ai.minimax import MinimaxAI
-from src.ai.difficulty import Difficulty
+from game.board import Board
+from game.rules import GameRules
+from ai.minimax import MinimaxAI
 import random
 
 # Page config

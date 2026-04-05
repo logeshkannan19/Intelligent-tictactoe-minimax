@@ -153,6 +153,25 @@ PYTHONPATH=src python -m src.main
 PYTHONPATH=src python -m src.gui
 ```
 
+### Web App (Streamlit)
+
+```bash
+pip install streamlit
+streamlit run webapp.py
+```
+
+---
+
+## 🚀 Deploy to Streamlit Cloud
+
+1. Push your code to GitHub
+2. Go to [streamlit.io](https://streamlit.io) and sign in
+3. Click "New App" and select your repository
+4. Set the main file to `webapp.py`
+5. Click "Deploy!"
+
+Your web app will be live at: `https://your-app-name.streamlit.app`
+
 ---
 
 ## 🧪 Run Tests
@@ -173,7 +192,7 @@ pytest
 
 * Online multiplayer
 * Reinforcement Learning AI
-* Web-based version (React + Flask)
+* Enhanced web UI with animations
 
 ---
 
