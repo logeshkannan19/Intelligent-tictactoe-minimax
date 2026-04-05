@@ -1,12 +1,12 @@
 [project]
-name = "tic-tac-toe"
+name = "intelligent-tictactoe-minimax"
 version = "1.0.0"
-description = "Tic Tac Toe game with intelligent AI opponent"
+description = "Tic Tac Toe game with intelligent AI opponent using Minimax algorithm"
 readme = "README.md"
 requires-python = ">=3.8"
 license = {text = "MIT"}
-authors = [{name = "AI Assistant"}]
-keywords = ["game", "tic-tac-toe", "ai", "minimax"]
+authors = [{name = "Logesh Kannan"}]
+keywords = ["game", "tic-tac-toe", "ai", "minimax", "python"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: End Users/Desktop",
@@ -17,11 +17,8 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Topic :: Games/Entertainment :: Board Games",
 ]
-
-[build-system]
-requires = ["setuptools>=65.0", "wheel"]
-build-backend = "setuptools.build_meta"
 
 [project.optional-dependencies]
 dev = [
@@ -30,8 +27,12 @@ dev = [
 ]
 
 [project.scripts]
-tic-tac-toe = "tic_tac_toe.main:main"
-tic-tac-toe-gui = "tic_tac_toe.gui:main"
+tictactoe = "src.main:main"
+tictactoe-gui = "src.gui:main"
+
+[build-system]
+requires = ["setuptools>=65.0", "wheel"]
+build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where = ["src"]
