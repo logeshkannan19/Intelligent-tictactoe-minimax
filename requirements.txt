@@ -1,0 +1,8 @@
+# Tic Tac Toe Project Requirements
+
+# No external dependencies required
+# Uses only Python standard library
+
+# For development/testing (optional)
+pytest>=7.0.0
+pytest-cov>=4.0.0
