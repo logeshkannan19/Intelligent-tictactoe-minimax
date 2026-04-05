@@ -36,16 +36,17 @@ The AI uses the **Minimax algorithm**, a decision-making technique that:
 intelligent-tictactoe-minimax/
 ├── src/
 │   ├── main.py              # Entry point (CLI)
+│   ├── gui.py               # Tkinter GUI
 │   ├── game/
 │   │   ├── board.py         # Board logic
 │   │   ├── rules.py         # Win/draw detection
-│   │   └── player.py        # Player classes
+│   │   └── player.py       # Player classes
 │   ├── ai/
 │   │   ├── minimax.py       # Minimax algorithm
 │   │   └── difficulty.py   # Difficulty levels
 │   └── utils/
-│       ├── display.py      # CLI display
-│       └── helpers.py      # Utilities
+│       ├── display.py       # CLI display
+│       └── helpers.py       # Utilities
 ├── tests/
 │   ├── test_game.py
 │   └── test_ai.py
@@ -56,6 +57,75 @@ intelligent-tictactoe-minimax/
 ├── LICENSE
 └── requirements.txt
 ```
+
+---
+
+## 🏗️ Architecture
+
+### Module Overview
+
+| Module | Description |
+|--------|-------------|
+| `src/game/board.py` | Manages 3x3 board state, move making/undoing |
+| `src/game/rules.py` | Win/draw detection, game state evaluation |
+| `src/game/player.py` | Player classes: HumanPlayer, AIPlayer |
+| `src/ai/minimax.py` | Minimax algorithm for optimal AI |
+| `src/ai/difficulty.py` | Difficulty enum (Easy/Medium/Hard) |
+| `src/utils/display.py` | CLI board display & messages |
+| `src/gui.py` | Tkinter GUI version |
+
+### Class Diagram
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    Player (Abstract)                        │
+├─────────────────────────────────────────────────────────────┤
+│ + mark: str    + name: str    + wins/losses/draws: int      │
+├─────────────────────────────────────────────────────────────┤
+│ + get_move(board: Board) -> int                             │
+└─────────────────────────────────────────────────────────────┘
+          │                           │
+          ▼                           ▼
+┌─────────────────────┐   ┌─────────────────────────────────────┐
+│    HumanPlayer      │   │           AIPlayer                  │
+├─────────────────────┤   ├─────────────────────────────────────┤
+│ + get_move(): int   │   │ + level: Difficulty                 │
+└─────────────────────┘   │ + get_move(): int                   │
+                           │   - _get_easy_move(): int           │
+                           │   - _get_medium_move(): int        │
+                           │   - _get_hard_move(): int          │
+                           └─────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────┐
+│                         Board                                │
+├─────────────────────────────────────────────────────────────┤
+│ + SIZE: int = 3    + WINNING_LINES: List                    │
+│ + cells: List[str]                                          │
+├─────────────────────────────────────────────────────────────┤
+│ + make_move(position, mark) -> bool                         │
+│ + undo_move(position) -> bool                               │
+│ + get_available_moves() -> List[int]                        │
+│ + is_full() -> bool                                         │
+│ + copy() -> Board                                           │
+└─────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────┐
+│                       MinimaxAI                              │
+├─────────────────────────────────────────────────────────────┤
+│ + WIN_SCORE: int = 10    + LOSE_SCORE: int = -10            │
+│ + ai_mark: str    + opponent_mark: str                      │
+├─────────────────────────────────────────────────────────────┤
+│ + get_best_move(board) -> int                               │
+│ + _minimax(board, depth, is_maximizing) -> int             │
+│ + evaluate_position(board) -> int                           │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Data Flow
+
+1. **Game Start**: `main.py` initializes `Game` with players
+2. **Turn Loop**: Display → Get Move → Update Board → Check End
+3. **AI Turn**: `AIPlayer.get_move()` → `MinimaxAI.get_best_move()` → Optimal Position
 
 ---
 
